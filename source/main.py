@@ -1,4 +1,5 @@
 from flask import Flask, request
+import re
 
 app = Flask(__name__)
 
@@ -6,8 +7,9 @@ app = Flask(__name__)
 @app.route('/helloworld')
 def hello_world():
     if 'name' in request.args:
-        greetings = request.args.get('name')
-        return "Hello" + " " + greetings
+        user_name = request.args.get('name')
+        greetings = re.sub(r'((?<=[a-z])[A-Z]|[A-Z](?=[a-z]))', r' \1', user_name).strip()
+        return 'Hello' + ' ' + greetings
     else:
         return "Hello Stranger"
 
