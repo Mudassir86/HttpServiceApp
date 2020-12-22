@@ -1,6 +1,20 @@
 from flask import Flask, request, url_for
+import logging
 import subprocess
+import sys
 import re
+
+
+logging.basicConfig(
+    filename='service.log',
+    level=logging.DEBUG,
+    format="%(asctime)s:%(levelname)s:%(message)s"
+)
+logging.getLogger().setLevel(logging.DEBUG)
+requests_log = logging.getLogger("requests.packages.urllib3")
+requests_log.setLevel(logging.DEBUG)
+requests_log.propagate = True
+
 
 app = Flask(__name__)
 
