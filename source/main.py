@@ -2,8 +2,7 @@ from flask import Flask, request
 from greeting_service import GreetingService
 from version_service import VersionService
 import logging
-import requests
-import re
+
 
 logging.basicConfig(
     filename='service.log',
