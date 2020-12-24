@@ -1,4 +1,6 @@
 from flask import Flask, request
+from greeting_service import GreetingService
+from version_service import VersionService
 import logging
 import requests
 import re
@@ -18,35 +20,18 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Welocme to The homepage!</h1>"
+    return "Welcome to The homepage!</h1>"
 
 
 @app.route('/helloworld')
 def hello_world():
-    if 'name' in request.args:
-        user_name = request.args.get('name')
-        greetings = re.sub(r'((?<=[a-z])[A-Z]|[A-Z](?=[a-z]))', r' \1', user_name).strip()
-        return 'Hello' + ' ' + greetings
-    else:
-        return "Hello Stranger"
+    user_name = request.args.get('name')
+    return GreetingService().say_hello(user_name)
 
 
-@app.route("/versionz")
+@app.route('/versionz')
 def versionz():
-    api_url = "https://api.github.com/repos"
-    owner = "Mudassir86"
-    repo = "HttpServiceApp"
-    base_url = api_url + "/" + owner + "/" + repo
-
-    response_api = requests.get(base_url)
-    response_api_json = response_api.json()
-
-    branch = 'master'
-    commit_api_url = base_url + '/commits' + '/' + branch
-    response_commit = requests.get(commit_api_url)
-    response_commit_json = response_commit.json()
-
-    return {'name': response_api_json['name'], 'last_commit_hash': response_commit_json['sha']}
+    return VersionService().versionz()
 
 
 if __name__ == '__main__':

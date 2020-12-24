@@ -1,7 +1,7 @@
 import re
 
 
-class HelloService:
+class GreetingService:
 
     def say_hello(self, user_name):
         if user_name is None:
