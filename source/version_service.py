@@ -1,7 +1,7 @@
 import requests
 
 
-class VersionSevice:
+class VersionService:
     def versionz(self):
         api_url = "https://api.github.com/repos"
         owner = "Mudassir86"
