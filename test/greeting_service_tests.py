@@ -2,7 +2,7 @@ import unittest
 from source.greeting_service import GreetingService
 
 
-class MyTestCase(unittest.TestCase):
+class HelloServiceTestCase(unittest.TestCase):
     def test_say_hello_no_input(self):
         sut = GreetingService()
         result = sut.say_hello(None)

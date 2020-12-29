@@ -2,7 +2,6 @@ import re
 
 
 class GreetingService:
-
     def say_hello(self, user_name):
         if user_name is None:
             return "Hello Stranger"
