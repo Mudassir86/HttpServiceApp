@@ -5,7 +5,7 @@ class VersionService:
     def versionz(self):
         api_url = "https://api.github.com/repos"
         owner = "Mudassir86"
-        repo = "HttpService"
+        repo = "HttpServiceApp"
         base_url = api_url + "/" + owner + "/" + repo
 
         api_request = requests.get(base_url)

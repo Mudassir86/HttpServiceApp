@@ -1,0 +1,5 @@
+Flask==1.1.2
+pip==20.3.3
+requests==2.25.1
+responses==0.12.1
+six==1.15.0

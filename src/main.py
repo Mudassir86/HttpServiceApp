@@ -3,7 +3,6 @@ from greeting_service import GreetingService
 from version_service import VersionService
 import logging
 
-
 logging.basicConfig(
     filename='service.log',
     level=logging.DEBUG,
@@ -34,4 +33,4 @@ def versionz():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
